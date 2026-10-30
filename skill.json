@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-genpark-community-ambassador",
+  "version": "1.0.0",
+  "description": "OpenClaw GenPark Community Ambassador - Sentiment momentum vector analysis, contributor reputation Eigenvector centrality, and toxic discourse damping factor modeling with zero dependencies.",
+  "tools": [
+    "calculate_sentiment_momentum_vector",
+    "compute_contributor_eigenvector_centrality",
+    "evaluate_toxic_discourse_damping"
+  ]
+}
