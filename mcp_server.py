@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List
 from client import OpenClawGenParkCommunityAmbassador
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("openclaw-genpark-community-ambassador")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("openclaw-genpark-community-ambassador")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('openclaw-genpark-community-ambassador')
 
 ambassador = OpenClawGenParkCommunityAmbassador()
 
@@ -58,8 +49,7 @@ def evaluate_toxic_discourse_damping(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Community Ambassador:")
-    print(calculate_sentiment_momentum_vector([0.2, 0.4, 0.6, 0.8]))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
